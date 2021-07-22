@@ -1,0 +1,30 @@
+Bootstrap: docker
+
+From: dealii/dealii
+
+
+%runscript
+
+%post
+
+    echo "Post install stuffs!"
+
+    apt-get -y update
+    apt-get -y install paraview
+    apt-get -y install libeigen3-dev
+
+    apt-key adv --fetch-keys http://repos.codelite.org/CodeLite.asc
+    apt-add-repository -y 'deb https://repos.codelite.org/ubuntu/ focal universe'
+    apt-get -y update
+    DEBIAN_FRONTEND=noninteractive apt-get -y install codelite
+
+%files
+
+
+
+%environment
+
+
+%labels
+
+AUTHOR brycehunt3
